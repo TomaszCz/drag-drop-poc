@@ -1,18 +1,22 @@
-<mat-grid-list
-  cols="3"
-  rowHeight="1:1"
-  cdkDropList
-  [cdkDropListData]="items"
-  class="example-list"
-  (cdkDropListDropped)="dropListDropped($event)"
->
-  <mat-grid-tile
-    cdkDrag
-    *ngFor="let tile of items"
-    [colspan]="tile.cols"
-    [rowspan]="tile.rows"
-    [style.background]="tile.color"
-  >
-    {{ tile.text }}
-  </mat-grid-tile>
-</mat-grid-list>
+<nav>
+  <ul>
+    <li>
+      <a
+        routerLink="/attempt1"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Attempt 1</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/attempt2"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        >Attempt 2</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

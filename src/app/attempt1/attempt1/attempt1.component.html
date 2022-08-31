@@ -1,0 +1,17 @@
+<div class="item-container" cdkDropListGroup>
+  <div
+    cdkDropList
+    (cdkDropListDropped)="dropListDropped()"
+    (cdkDropListEntered)="cdkDropListEntered($event)"
+  ></div>
+  <div
+    cdkDropList
+    *ngFor="let item of items; trackBy: itemTrackBy"
+    (cdkDropListDropped)="dropListDropped()"
+    (cdkDropListEntered)="cdkDropListEntered($event)"
+  >
+    <div cdkDrag class="example-box">
+      {{ item }}
+    </div>
+  </div>
+</div>
