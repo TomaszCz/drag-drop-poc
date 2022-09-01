@@ -1,0 +1,32 @@
+<h1>Drag&Drop with a grid</h1>
+
+<ul class="example-list">
+  <li *ngFor="let item of items">{{ item }}</li>
+</ul>
+
+<div class="example-container" cdkDropListGroup #listGroup>
+  <div
+    class="placeholder"
+    cdkDropList
+    (cdkDropListEntered)="entered($any($event))"
+    (cdkDropListDropped)="dropped()"
+    #placeholderId
+  ></div>
+
+  <div
+    cdkDropList
+    *ngFor="let item of items"
+    [ngClass]="itemSizes[item - 1]"
+    (cdkDropListEntered)="entered($any($event))"
+    (cdkDropListDropped)="dropped()"
+  >
+    <div cdkDrag class="example-box" (cdkDragReleased)="dragReleased()">
+      <div
+        class="example-custom-placeholder"
+        #dragPlaceholder
+        *cdkDragPlaceholder
+      ></div>
+      {{ item }}
+    </div>
+  </div>
+</div>

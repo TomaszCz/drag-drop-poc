@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AppRoutingModule } from './app-routing.module';
 import { Attempt2Module } from './attempt2/attempt2.module';
 import { RouterModule } from '@angular/router';
 import { Attempt1Module } from './attempt1/attempt1.module';
+import { Attempt3Module } from './attempt3/attempt3.module';
+import { Attempt4Module } from './attempt4/attempt4.module';
+
+import { Attempt5Module } from './attempt5/attempt5.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,8 +18,12 @@ import { Attempt1Module } from './attempt1/attempt1.module';
     RouterModule,
     BrowserModule,
     BrowserAnimationsModule,
+
     Attempt1Module,
     Attempt2Module,
+    Attempt3Module,
+    Attempt4Module,
+    Attempt5Module,
     AppRoutingModule,
   ],
   providers: [],
