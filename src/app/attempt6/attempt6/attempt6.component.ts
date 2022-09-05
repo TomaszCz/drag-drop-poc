@@ -9,6 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class Attempt6Component implements OnInit {
   constructor() {}
 
+  add() {
+    this.items.push(this.items.length + 1);
+  }
+
+  shuffle() {
+    this.items.sort(function () {
+      return 0.5 - Math.random();
+    });
+  }
+
   ngOnInit(): void {
     setTimeout(() => {
       [26, 27, 28, 29, 30].forEach((element) => {

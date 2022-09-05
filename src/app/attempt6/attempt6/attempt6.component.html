@@ -1,3 +1,8 @@
+<h1>Drag & Drop with fxLayout</h1>
+<button (click)="add()">Add</button> <button (click)="shuffle()">Shuffle</button
+><br />
+<span *ngFor="let item of items">{{ item }} &nbsp;</span>
+
 <div fxLayout="row wrap" fxLayoutGap="16px grid" cdkDropListGroup>
   <div
     *ngFor="let item of items; let index = index"
@@ -9,9 +14,8 @@
     [cdkDropListData]="index"
     (cdkDropListDropped)="drop($event)"
   >
-    <mat-card cdkDrag>
-      <mat-card-title>{{ item }}</mat-card-title>
-      <mat-card-subtitle>Viguide tile</mat-card-subtitle>
-    </mat-card>
+    <div class="example-box" cdkDrag>
+      {{ item }}
+    </div>
   </div>
 </div>
