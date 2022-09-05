@@ -9,8 +9,8 @@ import { RouterModule } from '@angular/router';
 import { Attempt1Module } from './attempt1/attempt1.module';
 import { Attempt3Module } from './attempt3/attempt3.module';
 import { Attempt4Module } from './attempt4/attempt4.module';
-
 import { Attempt5Module } from './attempt5/attempt5.module';
+import { Attempt6Module } from './attempt6/attempt6.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,6 +24,7 @@ import { Attempt5Module } from './attempt5/attempt5.module';
     Attempt3Module,
     Attempt4Module,
     Attempt5Module,
+    Attempt6Module,
     AppRoutingModule,
   ],
   providers: [],

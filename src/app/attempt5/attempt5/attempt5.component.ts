@@ -11,7 +11,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   templateUrl: './attempt5.component.html',
   styleUrls: ['./attempt5.component.scss'],
 })
-export class Attempt5Component {
+export class Attempt5Component implements OnInit {
   @ViewChild('dropListContainer') dropListContainer?: ElementRef;
 
   public items: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
@@ -21,6 +21,12 @@ export class Attempt5Component {
     dragIndex: number;
     dropIndex: number;
   };
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      [12, 13, 14, 15].forEach((element) => this.items.push(element));
+    }, 5000);
+  }
 
   add() {
     this.items.push(this.items.length + 1);
@@ -53,7 +59,9 @@ export class Attempt5Component {
   }
 
   dragMoved(event: CdkDragMove<number>) {
+    console.log('drag moved');
     if (!this.dropListContainer || !this.dragDropInfo) return;
+    console.log('drag moved after if');
 
     const placeholderElement =
       this.dropListContainer.nativeElement.querySelector(
@@ -74,9 +82,11 @@ export class Attempt5Component {
   }
 
   dragDropped(event: CdkDragDrop<number>) {
+    console.log('dragDropped');
     if (!this.dropListReceiverElement) {
       return;
     }
+    console.log('dragDropped after if');
 
     this.dropListReceiverElement.style.removeProperty('display');
     this.dropListReceiverElement = undefined;

@@ -1,9 +1,8 @@
 import {
-  AfterViewChecked,
   AfterViewInit,
   Component,
-  ContentChild,
   ElementRef,
+  OnInit,
   ViewChild,
 } from '@angular/core';
 
@@ -20,7 +19,7 @@ import {
   templateUrl: './attempt3.component.html',
   styleUrls: ['./attempt3.component.scss'],
 })
-export class Attempt3Component implements AfterViewInit {
+export class Attempt3Component implements OnInit, AfterViewInit {
   @ViewChild(CdkDropListGroup) listGroup: CdkDropListGroup<CdkDropList>;
   @ViewChild('listGroup') listGroupElRef: ElementRef;
   @ViewChild(CdkDropList) placeholder: CdkDropList;
@@ -29,11 +28,11 @@ export class Attempt3Component implements AfterViewInit {
   public items: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   public itemSizes: Array<string> = [
-    'content-item-c11 1',
-    'content-item-c11 2',
-    'content-item-c11 3',
-    'content-item-c11 4',
-    'content-item-c11 5',
+    'content-item-c22 1',
+    'content-item-c22 2',
+    'content-item-c22 3',
+    'content-item-c22 4',
+    'content-item-c22 5',
     'content-item-c11 6',
     'content-item-c11 7',
     'content-item-c11 8',
@@ -45,6 +44,15 @@ export class Attempt3Component implements AfterViewInit {
   public targetIndex: number;
   public source: CdkDropList | null;
   public sourceIndex: number;
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      [11, 12, 13, 14, 15].forEach((element) => {
+        this.items.push(element);
+        this.itemSizes.push(`content-item-c11 ${element}`);
+      });
+    }, 5000);
+  }
 
   ngAfterViewInit() {
     let phElement = this.placeholder.element.nativeElement;
@@ -64,6 +72,7 @@ export class Attempt3Component implements AfterViewInit {
   }
 
   dropped() {
+    console.log('dropped');
     if (!this.target) return;
 
     const parent: HTMLElement = this.listGroupElRef.nativeElement;
@@ -92,6 +101,9 @@ export class Attempt3Component implements AfterViewInit {
   }
 
   entered({ container, item }: CdkDragEnter) {
+    console.log('entered');
+    console.log(container);
+    console.log(item);
     const phElement: HTMLElement = this.placeholder.element.nativeElement;
     const dropElement: HTMLElement = container.element.nativeElement;
     const prevTarget: CdkDropList | null = this.target;
@@ -129,6 +141,7 @@ export class Attempt3Component implements AfterViewInit {
   }
 
   dragReleased() {
+    console.log('dragReleased');
     const phElementPositionWasChanged: boolean = !!this.source;
     if (phElementPositionWasChanged) {
       this.dragPlaceholderElRef.nativeElement.style.transform = 'none';
