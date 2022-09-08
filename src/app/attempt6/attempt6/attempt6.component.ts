@@ -21,19 +21,29 @@ export class Attempt6Component implements OnInit {
 
   ngOnInit(): void {
     setTimeout(() => {
-      [26, 27, 28, 29, 30].forEach((element) => {
+      [11, 12, 13, 14, 15].forEach((element) => {
         this.items.push(element);
       });
     }, 5000);
   }
 
-  items = Array(25)
+  items = Array(10)
+    .fill('')
+    .map((_, i) => i + 1);
+  items2 = Array(10)
     .fill('')
     .map((_, i) => i + 1);
 
   drop(event: CdkDragDrop<number>): void {
     moveItemInArray(
       this.items,
+      event.previousContainer.data,
+      event.container.data
+    );
+  }
+  drop2(event: CdkDragDrop<number>): void {
+    moveItemInArray(
+      this.items2,
       event.previousContainer.data,
       event.container.data
     );

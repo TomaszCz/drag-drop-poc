@@ -4,15 +4,82 @@
 <span *ngFor="let item of items">{{ item }} &nbsp;</span>
 
 <div fxLayout="row wrap" fxLayoutGap="16px grid" cdkDropListGroup>
+  <ng-container *ngFor="let item of items; let index = index">
+    <ng-container [ngSwitch]="item">
+      <div
+        fxFlex.gt-sm="25"
+        [fxFlex.gt-xs]="100 / 3"
+        fxFlex="50"
+        cdkDropList
+        cdkDropListOrientation="horizontal"
+        [cdkDropListData]="index"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <ng-container *ngSwitchCase="1">
+          <div class="example-box" cdkDrag>{{ item }} One</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="2">
+          <div class="example-box" cdkDrag>{{ item }} Two</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="3">
+          <div class="example-box" cdkDrag>{{ item }} Three</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="4">
+          <div class="example-box" cdkDrag>{{ item }} Four</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="5">
+          <div class="example-box" cdkDrag>{{ item }} Five</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="6">
+          <div class="example-box" cdkDrag>{{ item }} Six</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="7">
+          <div class="example-box" cdkDrag>{{ item }} Seven</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="8">
+          <div class="example-box" cdkDrag>{{ item }} Eight</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="9">
+          <div class="example-box" cdkDrag>{{ item }} Nine</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="10">
+          <div class="example-box" cdkDrag>{{ item }} Ten</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="11">
+          <div class="example-box" cdkDrag>{{ item }} Eleven</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="12">
+          <div class="example-box" cdkDrag>{{ item }} Twelve</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="13">
+          <div class="example-box" cdkDrag>{{ item }} Thirteen</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="14">
+          <div class="example-box" cdkDrag>{{ item }} Fourteen</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="15">
+          <div class="example-box" cdkDrag>{{ item }} Fiveteen</div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <div class="example-box" cdkDrag>This is Default</div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+Separate grid
+<span *ngFor="let item of items2">{{ item }} &nbsp;</span>
+<div fxLayout="row wrap" fxLayoutGap="16px grid" cdkDropListGroup>
   <div
-    *ngFor="let item of items; let index = index"
+    *ngFor="let item of items2; let index2 = index"
     fxFlex.gt-sm="25"
     [fxFlex.gt-xs]="100 / 3"
     fxFlex="50"
     cdkDropList
     cdkDropListOrientation="horizontal"
-    [cdkDropListData]="index"
-    (cdkDropListDropped)="drop($event)"
+    [cdkDropListData]="index2"
+    (cdkDropListDropped)="drop2($event)"
   >
     <div class="example-box" cdkDrag>
       {{ item }}
