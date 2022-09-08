@@ -1,15 +1,23 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component, OnInit } from '@angular/core';
+
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { PANEL_TYPES } from './attempt6.model';
 
 @Component({
   selector: 'app-attempt6',
   templateUrl: './attempt6.component.html',
   styleUrls: ['./attempt6.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Attempt6Component implements OnInit {
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
   PANEL_TYPES = PANEL_TYPES;
+  showB = false;
 
   add() {
     this.items.push(this.items.length + 1);
@@ -29,6 +37,8 @@ export class Attempt6Component implements OnInit {
       ['g', 'h'].forEach((element) => {
         this.items3.push(element);
       });
+      this.showB = true;
+      this.cdr.markForCheck();
     }, 5000);
   }
 
