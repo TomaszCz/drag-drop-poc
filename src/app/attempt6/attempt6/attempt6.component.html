@@ -1,6 +1,62 @@
 <h1>Drag & Drop with fxLayout</h1>
 <button (click)="add()">Add</button> <button (click)="shuffle()">Shuffle</button
 ><br />
+
+<span *ngFor="let item of items3">{{ item }} &nbsp;</span>
+
+<div fxLayout="row wrap" fxLayoutGap="16px grid" cdkDropListGroup>
+  <ng-container *ngFor="let item of items3">
+    <ng-container [ngSwitch]="item">
+      <div
+        fxFlex.gt-sm="25"
+        [fxFlex.gt-xs]="100 / 3"
+        fxFlex="50"
+        cdkDropList
+        cdkDropListOrientation="horizontal"
+        [cdkDropListData]="item"
+        (cdkDropListDropped)="drop3($event)"
+      >
+        <ng-container *ngSwitchCase="PANEL_TYPES.a">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.b">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.c">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.d">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.e">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.f">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.g">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.h">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.i">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.j">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchCase="PANEL_TYPES.k">
+          <div class="example-box" cdkDrag>{{ item }}</div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <div class="example-box" cdkDrag>This is Default</div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
 <span *ngFor="let item of items">{{ item }} &nbsp;</span>
 
 <div fxLayout="row wrap" fxLayoutGap="16px grid" cdkDropListGroup>
